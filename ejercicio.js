@@ -50,23 +50,21 @@ console.log(personajeEncontrado != null ? personajeEncontrado : "No se encontro"
 
 //Hacer un nuevo array solo con los nombres de los objetos y mostrar por consola
 
-personajes.forEach(personaje=>{
-    console.log(personaje.nombre)
-})
+const arrayNombres = personajes.map(personaje => personaje.nombre)
+
+console.log(arrayNombres) 
 
 // Hacer un promedio de edades/anios 
 
 
-let contador = 0
-for(var i = 0; i < personajes.length;i++){
-    contador += personajes[i].edad
-}
+let contador = personajes.reduce((a,b) => a + b.edad,0)
 
 let edadPromedio = contador/personajes.length
 
 console.log("edad promedio: " + edadPromedio)
 // Hacer nuevo array solo con los objetos de cierto tipo
-
 let nuevoArray = personajes.filter(personaje => personaje.tipo == 'Mamifero')
 
 console.log(nuevoArray)
+
+
